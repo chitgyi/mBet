@@ -10,5 +10,5 @@ const NORMAL_SHADOW = BoxShadow(
 const TEXT_FIELD_SHADOW = BoxShadow(
     color: Color(SHADOW_COLOR),
     offset: const Offset(1, 1),
-    blurRadius: 3,
+    blurRadius: 1,
     spreadRadius: 0);

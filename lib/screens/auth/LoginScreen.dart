@@ -7,6 +7,7 @@ import 'package:mBet/utils/const/illustrations.dart';
 import 'package:mBet/widgets/items/auth_text_field.dart';
 import 'package:mBet/widgets/items/half_button.dart';
 import 'package:mBet/widgets/views/background_wrapper.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -36,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                     padding:
                         const EdgeInsets.symmetric(vertical: NORMAL_DIM_3X),
                     child: Text(
-                      'Please Login',
+                      tr('please_login'),
                       style: GoogleFonts.gabriela(
                         fontSize: TEXT_LARGE,
                         fontWeight: FontWeight.bold,
@@ -45,14 +46,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 AuthTextField(
-                  hintText: 'Username',
+                  hintText: tr('username').toString(),
                   iconData: Icons.person,
                 ),
                 SizedBox(
                   height: NORMAL_DIM_2X,
                 ),
                 AuthTextField(
-                  hintText: 'Password',
+                  hintText: tr('password').toString(),
                   isSecure: true,
                   iconData: Icons.lock,
                 ),
@@ -64,7 +65,9 @@ class LoginScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      HalfButton(),
+                      HalfButton(
+                        onTap: () {},
+                      ),
                     ],
                   ),
                 ),
@@ -75,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                     child: TextButton(
                       onPressed: null,
                       child: Text(
-                        'Forget Password?',
+                        tr('forget_password'),
                         style: GoogleFonts.gabriela(
                           decoration: TextDecoration.underline,
                           color: Colors.black,
@@ -91,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                     child: TextButton(
                       onPressed: null,
                       child: Text(
-                        'Create Account?',
+                        tr('create_acc'),
                         style: GoogleFonts.gabriela(
                           decoration: TextDecoration.underline,
                           color: Color(PRIMARY_COLOR),
