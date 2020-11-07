@@ -68,7 +68,11 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         HalfButton(
                           onTap: () {
-                            EasyLocalization.of(context).locale = Locale('en');
+                            if (context.locale.languageCode == 'en') {
+                              context.locale = Locale('my');
+                            } else {
+                              context.locale = Locale('en');
+                            }
                           },
                         ),
                       ],
