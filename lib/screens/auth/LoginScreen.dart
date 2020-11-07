@@ -14,88 +14,93 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      extendBodyBehindAppBar: true,
       body: GestureDetector(
         onTap: () {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: BackgroundWrapper(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: LARGE_DIM_2X + MediaQuery.of(context).padding.top,
-                ),
-                Image.asset(
-                  Illustrations.login,
-                  fit: BoxFit.contain,
-                  width: AUTH_IMG_SIZE,
-                  height: AUTH_IMG_SIZE,
-                ),
-                Center(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: NORMAL_DIM_3X),
-                    child: Text(
-                      tr('please_login'),
-                      style: GoogleFonts.gabriela(
-                        fontSize: TEXT_LARGE,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: LARGE_DIM_2X + MediaQuery.of(context).padding.top,
                   ),
-                ),
-                AuthTextField(
-                  hintText: tr('username').toString(),
-                  iconData: Icons.person,
-                ),
-                SizedBox(
-                  height: NORMAL_DIM_2X,
-                ),
-                AuthTextField(
-                  hintText: tr('password').toString(),
-                  isSecure: true,
-                  iconData: Icons.lock,
-                ),
-                SizedBox(
-                  height: NORMAL_DIM_2X,
-                ),
-                SizedBox(
-                  width: AUTH_CONTAINER_WIDTH,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      HalfButton(
-                        onTap: () {},
-                      ),
-                    ],
+                  Image.asset(
+                    Illustrations.login,
+                    fit: BoxFit.contain,
+                    width: AUTH_IMG_SIZE,
+                    height: AUTH_IMG_SIZE,
                   ),
-                ),
-                Center(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: NORMAL_DIM_3X),
-                    child: TextButton(
-                      onPressed: null,
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(vertical: NORMAL_DIM_3X),
                       child: Text(
-                        tr('forget_password'),
+                        tr('please_login'),
                         style: GoogleFonts.gabriela(
-                          decoration: TextDecoration.underline,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
+                          fontSize: TEXT_LARGE,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ),
-                ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: LARGE_DIM),
+                  AuthTextField(
+                    hintText: tr('username').toString(),
+                    iconData: Icons.person,
+                  ),
+                  SizedBox(
+                    height: NORMAL_DIM_2X,
+                  ),
+                  AuthTextField(
+                    hintText: tr('password').toString(),
+                    isSecure: true,
+                    iconData: Icons.lock,
+                  ),
+                  SizedBox(
+                    height: NORMAL_DIM_2X,
+                  ),
+                  SizedBox(
+                    width: AUTH_CONTAINER_WIDTH,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        HalfButton(
+                          onTap: () {
+                            EasyLocalization.of(context).locale = Locale('en');
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(vertical: NORMAL_DIM_3X),
+                      child: TextButton(
+                        onPressed: null,
+                        child: Text(
+                          tr('forget_password'),
+                          style: TextStyle(
+                            fontFamily: tr('fontfamily'),
+                            decoration: TextDecoration.underline,
+                            fontSize: TEXT_SMALL,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Center(
                     child: TextButton(
                       onPressed: null,
                       child: Text(
                         tr('create_acc'),
-                        style: GoogleFonts.gabriela(
+                        style: TextStyle(
+                          fontFamily: tr('fontfamily'),
                           decoration: TextDecoration.underline,
                           color: Color(PRIMARY_COLOR),
                           fontWeight: FontWeight.w600,
@@ -103,8 +108,8 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

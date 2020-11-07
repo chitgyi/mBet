@@ -14,6 +14,7 @@ dependencies:
   google_fonts: ^1.1.1
   cupertino_icons: ^1.0.0
   easy_localization: ^2.3.3
+  provider:
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +28,12 @@ flutter:
   assets:
     - assets/illustrations/
     - lang/
+
+  fonts:
+    - family: Gabriela
+      fonts:
+        - asset: fonts/Gabriela-Regular.ttf
+        
+    - family: Pyidaungsu
+      fonts:
+        - asset: fonts/Pyidaungsu-Regular.ttf

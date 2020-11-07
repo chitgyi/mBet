@@ -1,3 +1,5 @@
+const double TEXT_SMALL_2X = 10;
+const double TEXT_SMALL = 12;
 const double TEXT_REGULAR = 14;
 const double TEXT_REGULAR_2X = 16;
 const double TEXT_REGULAR_3X = 18;

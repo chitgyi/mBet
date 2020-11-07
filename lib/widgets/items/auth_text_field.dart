@@ -1,8 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/dims.dart';
-import 'package:mBet/utils/const/styles.dart';
 
 class AuthTextField extends StatelessWidget {
   final String hintText;
@@ -23,7 +22,6 @@ class AuthTextField extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: NORMAL_DIM_3X),
       padding: EdgeInsets.symmetric(horizontal: NORMAL_DIM_2X),
       decoration: BoxDecoration(
-        boxShadow: [TEXT_FIELD_SHADOW],
         color: Color(ACCENT_COLOR),
         borderRadius: BorderRadius.circular(
           AUTH_CONTAINER_HEIGHT * HALF,
@@ -38,10 +36,14 @@ class AuthTextField extends StatelessWidget {
           Expanded(
             child: TextField(
               obscureText: isSecure,
-              style: GoogleFonts.gabriela(),
+              style: TextStyle(
+                fontFamily: tr('fontfamily'),
+              ),
               decoration: InputDecoration.collapsed(
                 hintText: hintText,
-                hintStyle: GoogleFonts.gabriela(),
+                hintStyle: TextStyle(
+                  fontFamily: tr('fontfamily'),
+                ),
               ),
             ),
           ),

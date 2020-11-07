@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/font_size.dart';
 import 'package:mBet/utils/const/styles.dart';
@@ -13,7 +12,7 @@ class HalfButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 13.0, horizontal: 35.0),
+        padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 35.0),
         decoration: BoxDecoration(
           boxShadow: [NORMAL_SHADOW],
           color: Color(PRIMARY_COLOR),
@@ -27,9 +26,10 @@ class HalfButton extends StatelessWidget {
         child: Center(
           child: Text(
             tr('login'),
-            style: GoogleFonts.gabriela(
+            style: TextStyle(
               fontSize: TEXT_REGULAR_2X,
               height: 1.5,
+              fontFamily: tr('fontfamily'),
               color: Colors.white,
               fontWeight: FontWeight.w600,
             ),

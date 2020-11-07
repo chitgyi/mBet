@@ -12,11 +12,14 @@ class BackgroundWrapper extends StatelessWidget {
       width: double.infinity,
       child: Stack(
         children: [
-          Image.asset(
-            Illustrations.bg,
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
+          Positioned(
+            top: 0,
+            child: Image.asset(
+              Illustrations.bg,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              fit: BoxFit.cover,
+            ),
           ),
           Positioned.fill(
             child: child,
