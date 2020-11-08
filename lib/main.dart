@@ -2,8 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mBet/blocs/app_bloc.dart';
+import 'package:mBet/generated/codegen_loader.g.dart';
+import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:mBet/screens/SplashScreen.dart';
 import 'package:mBet/screens/auth/LoginScreen.dart';
+import 'package:mBet/utils/const/colors.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -27,6 +30,7 @@ void main() {
       path: 'lang',
       fallbackLocale: Locale('en'),
       child: MyApp(),
+      assetLoader: CodegenLoader(),
     ),
   );
 }
@@ -43,8 +47,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         locale: Locale('my'),
-        title: 'mBet',
+        title: LocaleKeys.title.tr(),
         theme: ThemeData(
+          primaryColor: Color(PRIMARY_COLOR),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Selector<AppBloc, bool>(

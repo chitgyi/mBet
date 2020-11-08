@@ -1,12 +1,16 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/font_size.dart';
 import 'package:mBet/utils/const/styles.dart';
 
 class HalfButton extends StatelessWidget {
   final Function onTap;
-  HalfButton({this.onTap});
+  final String title;
+  HalfButton({
+    this.onTap,
+    @required this.title,
+  });
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,11 +29,11 @@ class HalfButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            tr('login'),
+            this.title,
             style: TextStyle(
               fontSize: TEXT_REGULAR_2X,
               height: 1.5,
-              fontFamily: tr('fontfamily'),
+              fontFamily: LocaleKeys.fontfamily,
               color: Colors.white,
               fontWeight: FontWeight.w600,
             ),

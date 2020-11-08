@@ -1,4 +1,4 @@
-const int PRIMARY_COLOR = 0xf2890baf;
+const int PRIMARY_COLOR = 0xFF890BAF;
 const int ACCENT_COLOR = 0xFFEEB9F6;
 const int SECONARY_COLOR = 0xFFFFFFFF;
 

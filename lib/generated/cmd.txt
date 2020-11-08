@@ -1,0 +1,5 @@
+For LocaleKeys
+ - flutter pub run easy_localization:generate -f keys -o locale_keys.g.dart -S lang/
+
+For Asset Loader
+- flutter pub run easy_localization:generate -S lang/

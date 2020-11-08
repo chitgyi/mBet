@@ -6,6 +6,7 @@ const double NORMAL_DIM_2X = 16.0;
 const double NORMAL_DIM_3X = 24.0;
 const double LARGE_DIM = 32.0;
 const double LARGE_DIM_2X = 40.0;
+const double LARGE_DIM_3X = 48.0;
 
 const double HALF = 0.5;
 

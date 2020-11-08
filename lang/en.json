@@ -5,9 +5,13 @@
     "please_login": "Please Login",
     "username": "Username",
     "password": "Password",
+    "confirm_password": "Confrim Passsword",
     "forget_password": "Forget Password?",
     "create_acc": "Create Account?",
     "email": "Email",
     "login": "Login",
-    "fontfamily": "Gabriela"
+    "fontfamily": "Gabriela",
+    "register": "Register",
+    "already_acc": "Already has an account?. Please Login",
+    "create_new_acc": "Create Account"
 }
