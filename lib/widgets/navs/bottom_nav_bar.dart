@@ -57,16 +57,18 @@ class BottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: items
+            .asMap()
+            .entries
             .map((e) => InkWell(
-                  onTap: () {},
+                  onTap: () => onTap(e.key),
                   child: BottomNavBarItem(
                     selectedColor: selectedItemColor,
                     unselectedColor: unelecedItemColor,
-                    title: e.title,
-                    iconData: e.iconData,
+                    title: e.value.title,
+                    iconData: e.value.iconData,
                     activeColor: activeColor,
                     paddingOfActiveItem: paddingOfActiveItem,
-                    isActived: currentIndex == items.indexOf(e),
+                    isActived: currentIndex == e.key,
                     animnaiton: animnaiton,
                   ),
                 ))
