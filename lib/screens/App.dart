@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mBet/blocs/app_bloc.dart';
+import 'package:mBet/screens/HomeScreen.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/dims.dart';
 import 'package:mBet/widgets/navs/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class App extends StatelessWidget {
   @override
@@ -14,31 +16,30 @@ class App extends StatelessWidget {
         builder: (context, index, child) => Stack(
           children: [
             Positioned.fill(
-              bottom: kBottomNavigationBarHeight,
+              bottom: kBottomNavigationBarHeight - NORMAL_DIM_2X,
               child: IndexedStack(
                 index: index,
                 children: [
+                  HomeScreen(),
                   Center(
-                    child: Text(bottomNavItems[index].title),
+                    child: Text(bottomNavItems[index].title.tr()),
                   ),
                   Center(
-                    child: Text(bottomNavItems[index].title),
+                    child: Text(bottomNavItems[index].title.tr()),
                   ),
                   Center(
-                    child: Text(bottomNavItems[index].title),
+                    child: Text(bottomNavItems[index].title.tr()),
                   ),
                   Center(
-                    child: Text(bottomNavItems[index].title),
-                  ),
-                  Center(
-                    child: Text(bottomNavItems[index].title),
+                    child: Text(bottomNavItems[index].title.tr()),
                   )
                 ],
               ),
             ),
             Positioned(
               width: MediaQuery.of(context).size.width,
-              height: kBottomNavigationBarHeight,
+              height: kBottomNavigationBarHeight +
+                  MediaQuery.of(context).padding.bottom,
               child: BottomNavBar(
                 onTap: (index) {
                   print(index);

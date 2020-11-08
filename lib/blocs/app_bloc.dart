@@ -1,9 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AppBloc extends ChangeNotifier {
   bool isShownSplashScreen = false;
 
   int currentPageIndex = 0;
+
+  void refreshUI() {
+    notifyListeners();
+  }
 
   void setCurrentPageIndex(int index) {
     currentPageIndex = index;

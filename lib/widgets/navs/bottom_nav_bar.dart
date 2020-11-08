@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:mBet/utils/const/dims.dart';
 import 'package:mBet/widgets/navs/bottom_nav_bar_item.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class BottomNavBar extends StatelessWidget {
   final List<BottomBarItemVO> items;
@@ -86,23 +85,23 @@ class BottomBarItemVO {
 
 final bottomNavItems = [
   BottomBarItemVO(
-    title: LocaleKeys.home.tr(),
+    title: LocaleKeys.home,
     iconData: Icons.home,
   ),
   BottomBarItemVO(
-    title: LocaleKeys.two_d.tr(),
+    title: LocaleKeys.two_d,
     iconData: Icons.library_books,
   ),
   BottomBarItemVO(
-    title: LocaleKeys.three_d.tr(),
+    title: LocaleKeys.three_d,
     iconData: Icons.shopping_cart,
   ),
   BottomBarItemVO(
-    title: LocaleKeys.football.tr(),
+    title: LocaleKeys.football,
     iconData: Icons.ballot,
   ),
   BottomBarItemVO(
-    title: LocaleKeys.profile.tr(),
+    title: LocaleKeys.profile,
     iconData: Icons.person,
   )
 ];

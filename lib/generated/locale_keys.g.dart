@@ -4,6 +4,7 @@ abstract class  LocaleKeys {
   static const title = 'title';
   static const en = 'en';
   static const my = 'my';
+  static const change_lang = 'change_lang';
   static const please_login = 'please_login';
   static const username = 'username';
   static const password = 'password';

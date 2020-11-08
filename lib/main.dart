@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:mBet/blocs/app_bloc.dart';
 import 'package:mBet/generated/codegen_loader.g.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
-import 'package:mBet/screens/App.dart';
 import 'package:mBet/screens/SplashScreen.dart';
+import 'package:mBet/screens/auth/LoginScreen.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +36,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static GlobalKey rootNavigator = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
         home: Selector<AppBloc, bool>(
           selector: (context, bloc) => bloc.isShownSplashScreen,
           builder: (context, isShownSplashScreen, child) =>
-              isShownSplashScreen ? App() : SplashScreen(),
+              isShownSplashScreen ? LoginScreen() : SplashScreen(),
         ),
       ),
     );

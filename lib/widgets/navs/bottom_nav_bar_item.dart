@@ -78,7 +78,7 @@ class _BottomNavBarItemState extends State<BottomNavBarItem>
               width: SMALL_DIM,
             ),
             Text(
-              widget.title,
+              widget.title.tr(),
               style: TextStyle(
                   fontFamily: LocaleKeys.fontfamily.tr(),
                   color: widget.isActived
