@@ -1,7 +1,7 @@
 //app dims
 const double SMALL_DIM_2X = 2.0;
 const double SMALL_DIM = 4.0;
-const double NOTMAL_DIM = 8.0;
+const double NORMAL_DIM = 8.0;
 const double NORMAL_DIM_2X = 16.0;
 const double NORMAL_DIM_3X = 24.0;
 const double LARGE_DIM = 32.0;

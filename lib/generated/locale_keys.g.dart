@@ -16,5 +16,15 @@ abstract class  LocaleKeys {
   static const register = 'register';
   static const already_acc = 'already_acc';
   static const create_new_acc = 'create_new_acc';
+  static const home = 'home';
+  static const two_d = 'two_d';
+  static const three_d = 'three_d';
+  static const football = 'football';
+  static const profile = 'profile';
+  static const two_d_news = 'two_d_news';
+  static const exchange_rate = 'exchange_rate';
+  static const leaderboard = 'leaderboard';
+  static const your_vouchers = 'your_vouchers';
+  static const history = 'history';
 
 }
