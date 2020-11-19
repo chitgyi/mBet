@@ -28,7 +28,7 @@ void main() {
         Locale('my'),
       ],
       path: 'lang',
-      fallbackLocale: Locale('en'),
+      fallbackLocale: Locale('my'),
       child: MyApp(),
       assetLoader: CodegenLoader(),
     ),
@@ -36,7 +36,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static GlobalKey rootNavigator = GlobalKey();
+  static GlobalKey root = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

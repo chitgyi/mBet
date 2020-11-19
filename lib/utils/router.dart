@@ -5,4 +5,8 @@ class MRouter {
     return Navigator.of(context)
         .push(MaterialPageRoute(builder: (_) => screen));
   }
+
+  static void back(BuildContext context) {
+    Navigator.pop(context);
+  }
 }
