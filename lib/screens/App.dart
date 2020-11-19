@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mBet/blocs/app_bloc.dart';
 import 'package:mBet/screens/HomeScreen.dart';
+import 'package:mBet/screens/ProfileScreen.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/dims.dart';
 import 'package:mBet/widgets/navs/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class App extends StatelessWidget {
   @override
@@ -22,9 +22,7 @@ class App extends StatelessWidget {
                 index: index,
                 children: [
                   HomeScreen(),
-                  Center(
-                    child: Text(bottomNavItems[index].title.tr()),
-                  )
+                  Profile(),
                 ],
               ),
             ),
