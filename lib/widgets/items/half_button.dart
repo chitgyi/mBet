@@ -16,10 +16,10 @@ class HalfButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 35.0),
+        padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 35.0),
         decoration: BoxDecoration(
           boxShadow: [NORMAL_SHADOW],
-          color: Color(SECONARY_COLOR),
+          color: Color(PRIMARY_COLOR),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(3.0),
             bottomLeft: Radius.circular(3.0),
@@ -32,7 +32,6 @@ class HalfButton extends StatelessWidget {
             this.title,
             style: TextStyle(
               fontSize: TEXT_REGULAR_2X,
-              height: 1.5,
               fontFamily: LocaleKeys.fontfamily,
               color: Colors.white,
               fontWeight: FontWeight.w600,

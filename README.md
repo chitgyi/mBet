@@ -1,1 +1,1 @@
-# mBet
+# mmLottery

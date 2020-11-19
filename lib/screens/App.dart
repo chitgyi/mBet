@@ -11,6 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Selector<AppBloc, int>(
         selector: (context, bloc) => bloc.currentPageIndex,
         builder: (context, index, child) => Stack(

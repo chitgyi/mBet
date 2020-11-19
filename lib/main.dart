@@ -28,7 +28,7 @@ void main() {
         Locale('my'),
       ],
       path: 'lang',
-      fallbackLocale: Locale('my'),
+      fallbackLocale: Locale('en'),
       child: MyApp(),
       assetLoader: CodegenLoader(),
     ),
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        locale: Locale('my'),
+        locale: Locale('en'),
         title: LocaleKeys.title.tr(),
         theme: ThemeData(
           primaryColor: Color(PRIMARY_COLOR),
