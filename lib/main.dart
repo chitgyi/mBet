@@ -23,6 +23,7 @@ void main() {
     EasyLocalization(
       useOnlyLangCode: true,
       saveLocale: true,
+      startLocale: Locale('my'),
       supportedLocales: [
         Locale('en'),
         Locale('my'),
@@ -47,7 +48,6 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        locale: Locale('en'),
         title: LocaleKeys.title.tr(),
         theme: ThemeData(
           primaryColor: Color(PRIMARY_COLOR),
