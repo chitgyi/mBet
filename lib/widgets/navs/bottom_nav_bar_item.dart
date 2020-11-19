@@ -57,7 +57,7 @@ class _BottomNavBarItemState extends State<BottomNavBarItem>
       child: Container(
         padding: widget.isActived
             ? EdgeInsets.symmetric(
-                horizontal: NORMAL_DIM_2X, vertical: NORMAL_DIM)
+                horizontal: NORMAL_DIM_3X, vertical: NORMAL_DIM)
             : EdgeInsets.zero,
         decoration: BoxDecoration(
           // boxShadow: [NAV_ITEM_SHADOW],

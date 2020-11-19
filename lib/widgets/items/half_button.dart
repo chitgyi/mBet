@@ -19,7 +19,7 @@ class HalfButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 35.0),
         decoration: BoxDecoration(
           boxShadow: [NORMAL_SHADOW],
-          color: Color(PRIMARY_COLOR),
+          color: Color(SECONARY_COLOR),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(3.0),
             bottomLeft: Radius.circular(3.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/widgets/utils/rectangle_shape.dart';
 import 'package:mBet/widgets/utils/ticket_type.dart';
 
@@ -37,7 +38,10 @@ class LotteryTicketItem extends StatelessWidget {
                   children: [
                     Text(
                       '၂၀ ကြိမ်မြောက်',
-                      style: TextStyle(fontFamily: LocaleKeys.fontfamily.tr()),
+                      style: TextStyle(
+                        fontFamily: LocaleKeys.fontfamily.tr(),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     Text(
                       'အောင်ဘာလေ',
@@ -45,7 +49,10 @@ class LotteryTicketItem extends StatelessWidget {
                     ),
                     Text(
                       'က ၃၃၃၉၃၉။ က ၃၃၉၄၄၄။ က ၆၆၆၆၆၉။',
-                      style: TextStyle(fontFamily: LocaleKeys.fontfamily.tr()),
+                      style: TextStyle(
+                        fontFamily: LocaleKeys.fontfamily.tr(),
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ],
                 ),
@@ -92,14 +99,14 @@ class LotteryTicketItem extends StatelessWidget {
   Color get color {
     switch (ticketType) {
       case TicketType.ThreeTicket:
-        return Colors.green;
+        return Color(GREEN);
         break;
       case TicketType.FiveTicket:
-        return Colors.red;
+        return Color(RED);
         break;
       case TicketType.ThreeTicket:
       default:
-        return Colors.blue;
+        return Color(PRIMARY_COLOR);
         break;
     }
   }

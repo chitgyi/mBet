@@ -23,15 +23,6 @@ class App extends StatelessWidget {
                   HomeScreen(),
                   Center(
                     child: Text(bottomNavItems[index].title.tr()),
-                  ),
-                  Center(
-                    child: Text(bottomNavItems[index].title.tr()),
-                  ),
-                  Center(
-                    child: Text(bottomNavItems[index].title.tr()),
-                  ),
-                  Center(
-                    child: Text(bottomNavItems[index].title.tr()),
                   )
                 ],
               ),
@@ -42,7 +33,6 @@ class App extends StatelessWidget {
                   MediaQuery.of(context).padding.bottom,
               child: BottomNavBar(
                 onTap: (index) {
-                  print(index);
                   Provider.of<AppBloc>(context, listen: false)
                       .setCurrentPageIndex(index);
                 },
