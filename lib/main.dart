@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mBet/blocs/app_bloc.dart';
+import 'package:mBet/blocs/ticket_group_bloc.dart';
 import 'package:mBet/generated/codegen_loader.g.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:mBet/screens/SplashScreen.dart';
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AppBloc()..showSplashOrHomePage(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TicketGroupBloc(),
         ),
       ],
       child: MaterialApp(

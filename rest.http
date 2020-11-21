@@ -1,0 +1,36 @@
+@url = https://lotteryapis.herokuapp.com/api/v1
+
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MjBlZWUzNC1jZjNjLTRjOWYtOTY5YS02ZTMwYjc2YzcyM2MiLCJqdGkiOiIyMDkxY2ExMDZkY2U4OTVkMWFmOWMyNDlhYzczYWYwZTEzMDE0NmM3YzMzNGFjNmM0MmY3ZjE5OWNiMTE1MGE3ZWQ3ODZjOWE0MTM1ODgxNiIsImlhdCI6MTYwNTk0NzQ1OCwibmJmIjoxNjA1OTQ3NDU4LCJleHAiOjE2Mzc0ODM0NTgsInN1YiI6IjEiLCJzY29wZXMiOlsidXNlciJdfQ.D4sDhQZXgrs7nAXblC2BehkSc7L6LV9wQuihLlJcJfCUolMh6voAmyF5l-QpEjfze-ThjwRENDOGvtR_hUjkjQ
+
+@appKey = chitgyi
+
+###
+POST {{url}}/register
+Content-Type: application/json
+Accept: application/json
+app-key: {{appKey}}
+
+{
+    "name": "Chit Ye", 
+    "email": "chityeaun@gmail.com",
+    "password": "chityeaung"
+}
+
+###
+
+POST {{url}}/login
+app-key: {{appKey}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "chityeaung@gmail.com",
+    "password": "password"
+}
+###
+
+GET {{url}}/tickets
+app-key: {{appKey}}
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}

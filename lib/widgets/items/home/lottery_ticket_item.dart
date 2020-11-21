@@ -1,16 +1,21 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mBet/persistence/entities/tickets/ticket_wrapper.dart';
 import 'package:mBet/utils/const/colors.dart';
+import 'package:mBet/utils/const/dims.dart';
+import 'package:mBet/utils/const/font_size.dart';
 import 'package:mBet/widgets/utils/rectangle_shape.dart';
-import 'package:mBet/widgets/utils/ticket_type.dart';
+import 'package:mBet/utils/extensions/string_extension.dart';
 
 class LotteryTicketItem extends StatelessWidget {
   final EdgeInsets margin;
-  final TicketType ticketType;
+  final TicketDataWrapper ticketDataWrapper;
   LotteryTicketItem({
     this.margin = EdgeInsets.zero,
-    this.ticketType = TicketType.TwoTicket,
+    this.ticketDataWrapper,
   });
   @override
   Widget build(BuildContext context) {
@@ -37,20 +42,28 @@ class LotteryTicketItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '၂၀ ကြိမ်မြောက်',
+                      '${ticketDataWrapper.ticketGroup.times.toString().toMMNumber()} ကြိမ်မြောက်',
                       style: TextStyle(
-                        fontFamily: LocaleKeys.fontfamily.tr(),
+                        fontSize: TEXT_REGULAR,
+                        fontFamily: 'Pyidaungsu',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text(
-                      'အောင်ဘာလေ',
-                      style: TextStyle(fontSize: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: NORMAL_DIM),
+                      child: Text(
+                        ticketDataWrapper.ticketGroup.merchant ?? '',
+                        style: TextStyle(
+                          fontSize: 12,
+                          height: 1.0,
+                        ),
+                      ),
                     ),
                     Text(
-                      'က ၃၃၃၉၃၉။ က ၃၃၉၄၄၄။ က ၆၆၆၆၆၉။',
+                      ticketDataWrapper.ticketNumbers,
                       style: TextStyle(
-                        fontFamily: LocaleKeys.fontfamily.tr(),
+                        fontFamily: 'Pyidaungsu',
+                        // heig0ht: 1.5,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -79,7 +92,7 @@ class LotteryTicketItem extends StatelessWidget {
                   bottom: 0,
                   right: 10,
                   child: Text(
-                    '၁၀၀၀ ကျပ်',
+                    '${ticketDataWrapper.type.price.toString().toMMNumber()} ကျပ်',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -97,16 +110,18 @@ class LotteryTicketItem extends StatelessWidget {
   }
 
   Color get color {
-    switch (ticketType) {
-      case TicketType.ThreeTicket:
+    switch (ticketDataWrapper.type.name) {
+      case "Type One":
+        return Color(PRIMARY_COLOR);
+        break;
+      case "Type Two":
         return Color(GREEN);
         break;
-      case TicketType.FiveTicket:
+      case "Type Three":
         return Color(RED);
         break;
-      case TicketType.ThreeTicket:
       default:
-        return Color(PRIMARY_COLOR);
+        return Colors.accents[Random().nextInt(3)];
         break;
     }
   }
