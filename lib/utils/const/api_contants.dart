@@ -7,7 +7,7 @@ const String ACCEPT = "Accept";
 const String TIMES = "times";
 
 const String BASE_URL = "https://lotteryapis.herokuapp.com/api/v1";
-const String TICKETS_ENTRY = "/tickets";
+const String TICKETS_ENTRY = "https://lotteryapis.herokuapp.com/api/v1/tickets";
 const String BUY_TICKETS_ENTRY = "/buy/tickets";
 const String LOGIN_ENTRY = "/login";
 const String REGISTER_ENTRY = "/register";

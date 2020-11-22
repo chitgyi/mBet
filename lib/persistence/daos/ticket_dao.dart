@@ -14,7 +14,9 @@ class TicketDao extends DatabaseAccessor<MyDatabase> with _$TicketDaoMixin {
   TicketDao(MyDatabase attachedDatabase) : super(attachedDatabase);
 
   Future<List<TicketDataWrapper>> tickets() async {
-    var groups = await select(ticketGroupTable).get();
+    var groupQuery = select(ticketGroupTable)
+      ..orderBy([(u) => OrderingTerm.desc(u.id)]);
+    var groups = await groupQuery.get();
     var data = groups.map((group) async {
       var query = select(ticketTable);
       query.where((tbl) => tbl.ticket_group_id.equals(group.id));
@@ -32,10 +34,11 @@ class TicketDao extends DatabaseAccessor<MyDatabase> with _$TicketDaoMixin {
   Future<List<TicketGroup>> get ticketGroups async =>
       await select(ticketGroupTable).get();
 
-  Future<void> insertAll(List<Map<String, dynamic>> dataList) async {
-    await delete(ticketGroupTable).go();
-    await delete(ticketTypeTable).go();
-    await delete(ticketTable).go();
+  Future<void> insertAll(List<Map<String, dynamic>> dataList,
+      {bool isAppend = false}) async {
+    if (!isAppend) {
+      await deleteAll();
+    }
     var futures = dataList.map((data) async {
       await insertType(TicketType.fromJson(data['type']));
       await insertGroup(TicketGroup.fromJson(data));
@@ -44,6 +47,12 @@ class TicketDao extends DatabaseAccessor<MyDatabase> with _$TicketDaoMixin {
           .toList());
     }).toList();
     await Future.wait(futures);
+  }
+
+  Future<void> deleteAll() async {
+    await delete(ticketGroupTable).go();
+    await delete(ticketTypeTable).go();
+    await delete(ticketTable).go();
   }
 
   Future<void> insertGroup(TicketGroup data) async {

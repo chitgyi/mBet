@@ -17,13 +17,13 @@ class _Api implements Api {
   String baseUrl;
 
   @override
-  Future<ApiResponse> tickets(token, {times}) async {
+  Future<ApiResponse> tickets(token, path) async {
     ArgumentError.checkNotNull(token, 'token');
+    ArgumentError.checkNotNull(path, 'path');
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'times': times};
-    queryParameters.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/tickets',
+    final _result = await _dio.request<Map<String, dynamic>>('$path',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',

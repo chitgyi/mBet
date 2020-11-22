@@ -9,11 +9,11 @@ part 'api.g.dart';
 abstract class Api {
   factory Api(Dio dio, {String baseUrl}) = _Api;
 
-  @GET(TICKETS_ENTRY)
+  @GET('{path}')
   Future<ApiResponse> tickets(
-    @Header(AUTHORIZATION) String token, {
-    @Query(TIMES) int times,
-  });
+    @Header(AUTHORIZATION) String token,
+    @Path() String path,
+  );
 
   @POST(LOGIN_ENTRY)
   Future<ApiResponse> login(

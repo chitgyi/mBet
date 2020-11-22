@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mBet/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:mBet/persistence/entities/tickets/ticket_wrapper.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/dims.dart';
