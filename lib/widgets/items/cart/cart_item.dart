@@ -77,6 +77,7 @@ class CartItem extends StatelessWidget {
                     .remove(ticketDataWrapper);
               },
               child: Container(
+                width: 110,
                 decoration: BoxDecoration(
                   color: color,
                   borderRadius: BorderRadius.only(

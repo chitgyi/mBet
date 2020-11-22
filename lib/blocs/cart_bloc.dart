@@ -10,15 +10,19 @@ class CartBloc extends StateController {
   }
   List<TicketDataWrapper> cartList = [];
 
-  void checkoutTickets() {
-    cartList.forEach((element) {
-      _cartModelImpl.checkoutTicket(element.ticketGroup.id).then((value) {
-        cartList.remove(element);
-        refreshUI();
-      }).catchError((onError) {
-        print(onError);
-      });
-    });
+  Future<void> checkoutTickets() async {
+    try {
+      await Future.wait(cartList.map((element) {
+        return _cartModelImpl
+            .checkoutTicket(element.ticketGroup.id)
+            .then((value) {
+          cartList.remove(element);
+          refreshUI();
+        });
+      }).toList());
+    } catch (e) {
+      return Future.error(e);
+    }
   }
 
   int get totalMount {

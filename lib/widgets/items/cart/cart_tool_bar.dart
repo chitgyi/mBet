@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/dims.dart';
-import 'package:mBet/utils/const/font_size.dart';
 import 'package:mBet/utils/extensions/string_extension.dart';
 
 class CartToolBar extends StatelessWidget {
   final int totalAmount;
+  final Function onTapCheckout;
   CartToolBar({
     this.totalAmount,
+    this.onTapCheckout,
   });
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class CartToolBar extends StatelessWidget {
               Icons.shop_two,
               color: Color(PRIMARY_COLOR),
             ),
-            onTap: null,
+            onTap: () => onTapCheckout(),
           )
         ],
       ),

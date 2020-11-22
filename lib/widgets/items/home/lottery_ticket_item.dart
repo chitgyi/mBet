@@ -62,6 +62,7 @@ class LotteryTicketItem extends StatelessWidget {
                     ),
                     Text(
                       ticketDataWrapper.ticketNumbers,
+                      textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontFamily: 'Pyidaungsu',
                         fontWeight: FontWeight.w500,
@@ -84,7 +85,7 @@ class LotteryTicketItem extends StatelessWidget {
               child: Stack(
                 children: [
                   SizedBox(
-                    width: 120,
+                    width: 110,
                     child: ClipPath(
                       clipper: RectangleShape(),
                       child: Container(
@@ -100,7 +101,7 @@ class LotteryTicketItem extends StatelessWidget {
                   ),
                   Positioned(
                     bottom: 0,
-                    right: 10,
+                    right: 5,
                     child: Text(
                       '${ticketDataWrapper.type.price.toString().toMMNumber()} ကျပ်',
                       style: TextStyle(color: Colors.white),

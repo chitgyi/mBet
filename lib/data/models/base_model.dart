@@ -14,7 +14,7 @@ abstract class BaseModel {
           validateStatus: (statusCode) => statusCode < 400,
           headers: {
             APP_KEY: APP_KEY_VALUE,
-            ACCEPT: ACCEPT_JSON,
+            // ACCEPT: ACCEPT_JSON,
           },
         ),
       ),

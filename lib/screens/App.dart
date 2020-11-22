@@ -17,40 +17,51 @@ class App extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Selector<AppBloc, int>(
         selector: (context, bloc) => bloc.currentPageIndex,
-        builder: (context, index, child) => Stack(
-          children: [
-            Positioned.fill(
-              bottom: kBottomNavigationBarHeight - NORMAL_DIM_2X,
-              child: IndexedStack(
-                index: index,
-                children: [
-                  HomeScreen(),
-                  CartScreen(),
-                  Profile(),
-                ],
-              ),
-            ),
-            Positioned(
-              width: MediaQuery.of(context).size.width,
-              height: kBottomNavigationBarHeight +
-                  MediaQuery.of(context).padding.bottom,
-              child: BottomNavBar(
-                onTap: (index) {
-                  Provider.of<AppBloc>(context, listen: false)
-                      .setCurrentPageIndex(index);
-                },
-                currentIndex: index,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(NORMAL_DIM_2X),
-                  topRight: Radius.circular(NORMAL_DIM_2X),
+        builder: (context, index, child) => WillPopScope(
+          onWillPop: () {
+            if (index == 0) {
+              return Future.value(true);
+            } else {
+              Provider.of<AppBloc>(context, listen: false)
+                  .setCurrentPageIndex(0);
+              return Future.value(false);
+            }
+          },
+          child: Stack(
+            children: [
+              Positioned.fill(
+                bottom: kBottomNavigationBarHeight - NORMAL_DIM_2X,
+                child: IndexedStack(
+                  index: index,
+                  children: [
+                    HomeScreen(),
+                    CartScreen(),
+                    Profile(),
+                  ],
                 ),
-                activeColor: Color(PRIMARY_COLOR),
-                items: bottomNavItems,
-                height: double.infinity,
               ),
-              bottom: 0,
-            )
-          ],
+              Positioned(
+                width: MediaQuery.of(context).size.width,
+                height: kBottomNavigationBarHeight +
+                    MediaQuery.of(context).padding.bottom,
+                child: BottomNavBar(
+                  onTap: (index) {
+                    Provider.of<AppBloc>(context, listen: false)
+                        .setCurrentPageIndex(index);
+                  },
+                  currentIndex: index,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(NORMAL_DIM_2X),
+                    topRight: Radius.circular(NORMAL_DIM_2X),
+                  ),
+                  activeColor: Color(PRIMARY_COLOR),
+                  items: bottomNavItems,
+                  height: double.infinity,
+                ),
+                bottom: 0,
+              )
+            ],
+          ),
         ),
       ),
     );

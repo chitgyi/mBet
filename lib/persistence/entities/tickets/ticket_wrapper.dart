@@ -13,7 +13,7 @@ class TicketDataWrapper {
 
   String get ticketNumbers {
     String str = '';
-    tickets.asMap().entries.forEach((e) => str += "${e.value.ticket_num}။ ");
+    tickets.asMap().entries.forEach((e) => str += "${e.value.ticket_num}။    ");
     return str;
   }
 }
