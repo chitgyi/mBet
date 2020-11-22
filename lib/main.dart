@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mBet/blocs/app_bloc.dart';
+import 'package:mBet/blocs/cart_bloc.dart';
 import 'package:mBet/blocs/ticket_group_bloc.dart';
 import 'package:mBet/generated/codegen_loader.g.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
@@ -38,7 +39,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static GlobalKey root = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -48,6 +48,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => TicketGroupBloc(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartBloc(),
         ),
       ],
       child: MaterialApp(

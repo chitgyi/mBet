@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mBet/blocs/app_bloc.dart';
+import 'package:mBet/screens/CartScreen.dart';
 import 'package:mBet/screens/HomeScreen.dart';
 import 'package:mBet/screens/ProfileScreen.dart';
 import 'package:mBet/utils/const/colors.dart';
@@ -8,9 +9,11 @@ import 'package:mBet/widgets/navs/bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
+  static final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
       body: Selector<AppBloc, int>(
         selector: (context, bloc) => bloc.currentPageIndex,
@@ -22,7 +25,7 @@ class App extends StatelessWidget {
                 index: index,
                 children: [
                   HomeScreen(),
-                  Container(),
+                  CartScreen(),
                   Profile(),
                 ],
               ),

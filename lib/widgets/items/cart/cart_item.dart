@@ -11,10 +11,10 @@ import 'package:mBet/widgets/utils/rectangle_shape.dart';
 import 'package:mBet/utils/extensions/string_extension.dart';
 import 'package:provider/provider.dart';
 
-class LotteryTicketItem extends StatelessWidget {
+class CartItem extends StatelessWidget {
   final EdgeInsets margin;
   final TicketDataWrapper ticketDataWrapper;
-  LotteryTicketItem({
+  CartItem({
     this.margin = EdgeInsets.zero,
     this.ticketDataWrapper,
   });
@@ -73,47 +73,33 @@ class LotteryTicketItem extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                var isAdded = Provider.of<CartBloc>(context, listen: false)
-                    .addItem(ticketDataWrapper);
-                if (isAdded) {
-                  _showSnackBar(context);
-                } else {
-                  _showDialog(context);
-                }
+                Provider.of<CartBloc>(context, listen: false)
+                    .remove(ticketDataWrapper);
               },
-              child: Stack(
-                children: [
-                  SizedBox(
-                    width: 120,
-                    child: ClipPath(
-                      clipper: RectangleShape(),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: this.color,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(13),
-                            bottomRight: Radius.circular(10),
-                          ),
-                        ),
-                      ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: NORMAL_DIM),
+                height: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.remove_circle_outline_outlined,
+                      color: Colors.white,
                     ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 10,
-                    child: Text(
+                    Text(
                       '${ticketDataWrapper.type.price.toString().toMMNumber()} ကျပ်',
                       style: TextStyle(color: Colors.white),
                     ),
-                  ),
-                  Positioned(
-                    bottom: 120 * 0.3,
-                    right: 30,
-                    child: Icon(Icons.add_shopping_cart, color: Colors.white),
-                  )
-                ],
+                  ],
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -135,36 +121,5 @@ class LotteryTicketItem extends StatelessWidget {
         return Colors.accents[Random().nextInt(3)];
         break;
     }
-  }
-
-  void _showDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      child: AlertDialog(
-        title: Icon(
-          Icons.info_outline,
-          size: 50,
-          color: Colors.redAccent,
-        ),
-        content: Text(
-          'စျေးခြင်းထဲတွင် ရှိနေပြီးသားဖြစ်ပါတယ်။',
-          style: TextStyle(
-            fontFamily: 'Pyidaungsu',
-          ),
-        ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: Text('OK'))
-        ],
-      ),
-    );
-  }
-
-  void _showSnackBar(BuildContext context) {
-    App.scaffoldKey.currentState.showSnackBar(
-      SnackBar(
-        content: Text('စျေးခြင်းထဲသို့ ထည့်ပြီးပါပြီ။'),
-        duration: Duration(milliseconds: 1500),
-      ),
-    );
   }
 }
