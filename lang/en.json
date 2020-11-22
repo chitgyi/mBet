@@ -16,13 +16,8 @@
     "already_acc": "Already has an account?. Please Login",
     "create_new_acc": "Create Account",
     "home": "Home",
-    "two_d": "2D",
-    "three_d": "3D",
-    "football": "Football",
     "profile": "Profile",
-    "two_d_news": "2D News",
     "exchange_rate": "Exchange Rate",
-    "leaderboard": "Leaderboard",
-    "your_vouchers": "Your Vouchers",
-    "history": "History"
+    "history": "History",
+    "cart": "Cart"
 }

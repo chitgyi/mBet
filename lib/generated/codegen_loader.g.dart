@@ -32,15 +32,10 @@ class CodegenLoader extends AssetLoader{
   "already_acc": "Already has an account?. Please Login",
   "create_new_acc": "Create Account",
   "home": "Home",
-  "two_d": "2D",
-  "three_d": "3D",
-  "football": "Football",
   "profile": "Profile",
-  "two_d_news": "2D News",
   "exchange_rate": "Exchange Rate",
-  "leaderboard": "Leaderboard",
-  "your_vouchers": "Your Vouchers",
-  "history": "History"
+  "history": "History",
+  "cart": "Cart"
 };
 static const Map<String,dynamic> my = {
   "title": "mBet",
@@ -60,15 +55,10 @@ static const Map<String,dynamic> my = {
   "already_acc": "အကောင့်ရှိလျှင်လော့အင်၀င်ရန်",
   "create_new_acc": "အကောင့်အသစ်ပြုလုပ်ရန်",
   "home": "ပင်မ",
-  "two_d": "၂လုံး",
-  "three_d": "၃လုံး",
-  "football": "ဘောလုံး",
   "profile": "ပရိုဖိုင်",
-  "two_d_news": "၂လုံး သတင်း",
   "exchange_rate": "လဲလှယ်နှုန်း",
-  "leaderboard": "ထိပ်တန်းကစားသမားများ",
-  "your_vouchers": "လက်မှတ်များ",
-  "history": "မှတ်တမ်း"
+  "history": "မှတ်တမ်း",
+  "cart": "စျေးခြင်း"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "my": my};
 }

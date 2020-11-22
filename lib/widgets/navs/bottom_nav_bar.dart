@@ -89,6 +89,10 @@ final bottomNavItems = [
     iconData: Icons.home,
   ),
   BottomBarItemVO(
+    title: LocaleKeys.cart,
+    iconData: Icons.shopping_cart,
+  ),
+  BottomBarItemVO(
     title: LocaleKeys.profile,
     iconData: Icons.person,
   )

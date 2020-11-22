@@ -22,6 +22,7 @@ class App extends StatelessWidget {
                 index: index,
                 children: [
                   HomeScreen(),
+                  Container(),
                   Profile(),
                 ],
               ),
