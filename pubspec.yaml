@@ -24,6 +24,7 @@ dependencies:
   retrofit: any
   logger: any
   dio:
+  shared_preferences: ^0.5.12+4
 
 dev_dependencies:
   flutter_test:

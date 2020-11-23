@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mBet/network/api.dart';
+import 'package:mBet/persistence/daos/user_dao.dart';
 import 'package:mBet/utils/const/api_contants.dart';
 import 'package:mBet/utils/extensions/string_extension.dart';
 
@@ -21,7 +22,8 @@ abstract class BaseModel {
     );
   }
 
-  String get bearerToken =>
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MjBmYTdmNy1lNTIwLTRmZjctYmY2NS1kMDEwYmU3NzkxMDMiLCJqdGkiOiIwOTI5Y2ZiZGY5MGNhYzlkMjFjOWQ1NjE2ZjllMGRiMWNjZDU5MmNiMzI0MTA2OTU5OTE2YTdiMjdlNDRkMDBiOWNkMjQzZGFkZDhjNjdjMyIsImlhdCI6MTYwNTk1OTU5NiwibmJmIjoxNjA1OTU5NTk2LCJleHAiOjE2Mzc0OTU1OTYsInN1YiI6IjEiLCJzY29wZXMiOlsidXNlciJdfQ.SVKREsZc2Mx-lEd2bSrlXAMI-O1E01G3STA8ornfGb0Vbnkab1MPK4sG7uWC2fV-i6F2DuLfzd3o_hkJ4wCxVw'
-          .toBearerToken();
+  Future<String> get bearerToken async {
+    var token = await UserDao().getToken();
+    return token.toBearerToken();
+  }
 }

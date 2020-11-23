@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mBet/blocs/auth_bloc.dart';
 import 'package:mBet/generated/locale_keys.g.dart';
 import 'package:mBet/screens/App.dart';
 import 'package:mBet/screens/auth/RegisterSreen.dart';
@@ -7,13 +8,17 @@ import 'package:mBet/utils/const/colors.dart';
 import 'package:mBet/utils/const/dims.dart';
 import 'package:mBet/utils/const/font_size.dart';
 import 'package:mBet/utils/const/illustrations.dart';
+import 'package:mBet/utils/pure_function.dart';
 import 'package:mBet/utils/router.dart';
 import 'package:mBet/widgets/items/auth_text_field.dart';
 import 'package:mBet/widgets/items/half_button.dart';
 import 'package:mBet/widgets/views/background_wrapper.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +56,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   AuthTextField(
+                    controller: _username,
                     hintText: LocaleKeys.username.tr(),
                     iconData: Icons.person,
                   ),
@@ -58,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                     height: NORMAL_DIM_2X,
                   ),
                   AuthTextField(
+                    controller: _password,
                     hintText: LocaleKeys.password.tr(),
                     isSecure: true,
                     iconData: Icons.lock,
@@ -72,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         HalfButton(
                           title: LocaleKeys.login.tr(),
-                          onTap: () => MRouter.to(context, App()),
+                          onTap: () => _login(context),
                         ),
                       ],
                     ),
@@ -118,5 +125,21 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _login(BuildContext context) {
+    showLoadingDialog(
+      context,
+    );
+    Provider.of<AuthBloc>(context, listen: false)
+        .login(_username.text, _password.text)
+        .then((value) {
+      hideDialog(context);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => App()), (route) => false);
+    }).catchError((onError) {
+      hideDialog(context);
+      showErrorDialog(context, message: onError);
+    });
   }
 }

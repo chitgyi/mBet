@@ -7,11 +7,13 @@ class AuthTextField extends StatelessWidget {
   final String hintText;
   final bool isSecure;
   final IconData iconData;
+  final TextEditingController controller;
 
   AuthTextField({
     @required this.hintText,
     @required this.iconData,
     this.isSecure = false,
+    this.controller,
   });
 
   @override
@@ -35,6 +37,7 @@ class AuthTextField extends StatelessWidget {
           ),
           Expanded(
             child: TextField(
+              controller: controller,
               obscureText: isSecure,
               style: TextStyle(
                 fontFamily: tr('fontfamily'),

@@ -36,12 +36,12 @@ class _Api implements Api {
   }
 
   @override
-  Future<ApiResponse> login(username, password) async {
-    ArgumentError.checkNotNull(username, 'username');
+  Future<ApiResponse> login(email, password) async {
+    ArgumentError.checkNotNull(email, 'email');
     ArgumentError.checkNotNull(password, 'password');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _data = {'username': username, 'password': password};
+    final _data = {'email': email, 'password': password};
     _data.removeWhere((k, v) => v == null);
     final _result = await _dio.request<Map<String, dynamic>>('/login',
         queryParameters: queryParameters,

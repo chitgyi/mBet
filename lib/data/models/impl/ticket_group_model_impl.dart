@@ -19,7 +19,8 @@ class TicketGroupModelImpl extends TicketGroupModel {
   Future<ResponseMetaData> fetchTicketGroups(
       {String path = TICKETS_ENTRY, bool isNextPage = false}) async {
     try {
-      var res = await api.tickets(bearerToken, path);
+      var token = await bearerToken;
+      var res = await api.tickets(token, path);
       var data =
           (res.data as List).map((e) => Map<String, dynamic>.from(e)).toList();
       await ticketDao.insertAll(data, isAppend: isNextPage);

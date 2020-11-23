@@ -16,17 +16,20 @@ class CartBloc extends StateController {
   Future<void> checkoutTickets() async {
     try {
       // Check Balance
-      int myAmount = 1000;
+      int myAmount = 10000;
       if (totalMount > myAmount) {
         throw Exception(LOW_BALANGE_MSG);
       }
       // Checkout Orders
       OrderResponse response =
           await _cartModelImpl.checkoutTicket(_requestData());
+      print(response.toJson());
       _updateCartList(response.data.successIDs);
       refreshUI();
       if (response.data.failedIDs.isNotEmpty) {
         throw Exception(ALREADY_PURCHASED_BY_ANOTHER);
+      } else if (response.message.contains('Your Amount is Low')) {
+        throw Exception(LOW_BALANGE_MSG);
       }
     } catch (e) {
       return Future.error(e.message);

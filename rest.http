@@ -1,6 +1,6 @@
 @url = https://lotteryapis.herokuapp.com/api/v1
 
-@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MjBlZWUzNC1jZjNjLTRjOWYtOTY5YS02ZTMwYjc2YzcyM2MiLCJqdGkiOiIyMDkxY2ExMDZkY2U4OTVkMWFmOWMyNDlhYzczYWYwZTEzMDE0NmM3YzMzNGFjNmM0MmY3ZjE5OWNiMTE1MGE3ZWQ3ODZjOWE0MTM1ODgxNiIsImlhdCI6MTYwNTk0NzQ1OCwibmJmIjoxNjA1OTQ3NDU4LCJleHAiOjE2Mzc0ODM0NTgsInN1YiI6IjEiLCJzY29wZXMiOlsidXNlciJdfQ.D4sDhQZXgrs7nAXblC2BehkSc7L6LV9wQuihLlJcJfCUolMh6voAmyF5l-QpEjfze-ThjwRENDOGvtR_hUjkjQ
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MjBmYTdmNy1lNTIwLTRmZjctYmY2NS1kMDEwYmU3NzkxMDMiLCJqdGkiOiIwOTI5Y2ZiZGY5MGNhYzlkMjFjOWQ1NjE2ZjllMGRiMWNjZDU5MmNiMzI0MTA2OTU5OTE2YTdiMjdlNDRkMDBiOWNkMjQzZGFkZDhjNjdjMyIsImlhdCI6MTYwNTk1OTU5NiwibmJmIjoxNjA1OTU5NTk2LCJleHAiOjE2Mzc0OTU1OTYsInN1YiI6IjEiLCJzY29wZXMiOlsidXNlciJdfQ.SVKREsZc2Mx-lEd2bSrlXAMI-O1E01G3STA8ornfGb0Vbnkab1MPK4sG7uWC2fV-i6F2DuLfzd3o_hkJ4wCxVw
 
 @appKey = chitgyi
 
@@ -29,7 +29,7 @@ Accept: application/json
 }
 ###
 
-GET {{url}}/tickets
+GET {{url}}/profile
 app-key: {{appKey}}
 Content-Type: application/json
 Accept: application/json

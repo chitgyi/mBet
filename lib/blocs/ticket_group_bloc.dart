@@ -20,11 +20,7 @@ class TicketGroupBloc extends StateController {
   _retrieveTickets() {
     _groupModelImpl.ticketGroups.then((data) {
       tickets = data;
-      if (isNullOrEmpty(tickets)) {
-        viewState = ViewState.Loading;
-      } else {
-        setState(ViewState.Completed);
-      }
+      setState(ViewState.Completed);
     });
   }
 

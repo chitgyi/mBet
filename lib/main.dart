@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mBet/blocs/app_bloc.dart';
+import 'package:mBet/blocs/auth_bloc.dart';
 import 'package:mBet/blocs/cart_bloc.dart';
 import 'package:mBet/blocs/ticket_group_bloc.dart';
 import 'package:mBet/generated/codegen_loader.g.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        Provider(create: (context) => AuthBloc()),
         ChangeNotifierProvider(
           create: (context) => AppBloc()..showSplashOrHomePage(),
         ),

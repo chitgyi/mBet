@@ -18,7 +18,7 @@ abstract class Api {
 
   @POST(LOGIN_ENTRY)
   Future<ApiResponse> login(
-    @Field() String username,
+    @Field() String email,
     @Field() String password,
   );
 

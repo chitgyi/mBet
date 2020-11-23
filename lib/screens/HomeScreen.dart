@@ -25,7 +25,11 @@ class HomeScreen extends StatelessWidget {
                   return Center(child: CircularProgressIndicator());
                   break;
                 case ViewState.Completed:
-                  return TicketList(bloc.tickets);
+                  return bloc.tickets.isEmpty
+                      ? Center(
+                          child: Text('There is no ticket'),
+                        )
+                      : TicketList(bloc.tickets);
                   break;
                 case ViewState.Error:
                 default:

@@ -56,6 +56,28 @@ showWarningDialog(BuildContext context, {String message = ''}) {
   );
 }
 
+showErrorDialog(BuildContext context, {String message = ''}) {
+  showDialog(
+    context: context,
+    child: AlertDialog(
+      title: Icon(Icons.error_outline, size: 50, color: Colors.redAccent),
+      content: Text(
+        message,
+        style: TextStyle(
+          fontFamily: 'Pyidaungsu',
+          fontSize: TEXT_REGULAR,
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text("OK"),
+        )
+      ],
+    ),
+  );
+}
+
 showSuccessDialog(BuildContext context, {String message = ''}) {
   showDialog(
     context: context,

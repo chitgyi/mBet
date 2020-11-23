@@ -7,7 +7,8 @@ class CartModelImpl extends CartModel {
   @override
   Future<OrderResponse> checkoutTicket(Map<String, dynamic> data) async {
     try {
-      return await api.buyTicket(bearerToken, data);
+      var token = await bearerToken;
+      return await api.buyTicket(token, data);
     } on DioError catch (e) {
       if (e?.response?.statusCode == 402) {
         return OrderResponse.fromJson(e.response.data);
