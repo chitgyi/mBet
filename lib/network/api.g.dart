@@ -83,12 +83,31 @@ class _Api implements Api {
   }
 
   @override
-  Future<ApiResponse> buyTicket(token, ticketGroupID) async {
+  Future<ApiResponse> profile(token) async {
     ArgumentError.checkNotNull(token, 'token');
-    ArgumentError.checkNotNull(ticketGroupID, 'ticketGroupID');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _data = {'ticket_group_id': ticketGroupID};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.request<Map<String, dynamic>>('/profile',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{r'Authorization': token},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = ApiResponse.fromJson(_result.data);
+    return value;
+  }
+
+  @override
+  Future<OrderResponse> buyTicket(token, data) async {
+    ArgumentError.checkNotNull(token, 'token');
+    ArgumentError.checkNotNull(data, 'data');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(data ?? <String, dynamic>{});
     _data.removeWhere((k, v) => v == null);
     final _result = await _dio.request<Map<String, dynamic>>('/buy/tickets',
         queryParameters: queryParameters,
@@ -98,7 +117,7 @@ class _Api implements Api {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    final value = ApiResponse.fromJson(_result.data);
+    final value = OrderResponse.fromJson(_result.data);
     return value;
   }
 }

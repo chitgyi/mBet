@@ -1,4 +1,5 @@
 import 'package:mBet/network/response/api_response.dart';
+import 'package:mBet/network/response/order_response.dart';
 import 'package:mBet/utils/const/api_contants.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -29,9 +30,14 @@ abstract class Api {
     @Field() String password,
   );
 
-  @POST(BUY_TICKETS_ENTRY)
-  Future<ApiResponse> buyTicket(
+  @GET(PROFILE_ENTRY)
+  Future<ApiResponse> profile(
     @Header(AUTHORIZATION) String token,
-    @Field(TICKET_GROUP_ID_KEY) int ticketGroupID,
+  );
+
+  @POST(BUY_TICKETS_ENTRY)
+  Future<OrderResponse> buyTicket(
+    @Header(AUTHORIZATION) String token,
+    @Body() Map<String, dynamic> data,
   );
 }

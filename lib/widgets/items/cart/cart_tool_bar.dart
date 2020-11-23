@@ -42,13 +42,15 @@ class CartToolBar extends StatelessWidget {
             ),
           ),
           Spacer(),
-          InkWell(
-            child: Icon(
-              Icons.shop_two,
-              color: Color(PRIMARY_COLOR),
-            ),
-            onTap: () => onTapCheckout(),
-          )
+          totalAmount > 0
+              ? InkWell(
+                  child: Icon(
+                    Icons.shop_two,
+                    color: Color(PRIMARY_COLOR),
+                  ),
+                  onTap: () => onTapCheckout(),
+                )
+              : SizedBox.shrink()
         ],
       ),
     );

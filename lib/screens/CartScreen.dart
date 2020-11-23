@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mBet/blocs/cart_bloc.dart';
 import 'package:mBet/utils/const/dims.dart';
+import 'package:mBet/utils/const/string_constants.dart';
 import 'package:mBet/utils/pure_function.dart';
 import 'package:mBet/widgets/items/cart/cart_item.dart';
 import 'package:mBet/widgets/items/cart/cart_tool_bar.dart';
@@ -16,19 +17,12 @@ class CartScreen extends StatelessWidget {
             totalAmount: bloc.totalMount,
             onTapCheckout: () {
               showLoadingDialog(context);
-              bloc.checkoutTickets().then((value) {
+              bloc.checkoutTickets().then((cartLength) {
                 hideDialog(context);
-                showSuccessDialog(
-                  context,
-                  message:
-                      'ထီလက်မှတ် ၀ယ်ယူမှုအောင်မြင်ပါသည်။ ၀ယ်ယူအားပေမှုအား အထူးကျေးဇူးတင်ရှိပါသည်။',
-                );
+                showSuccessDialog(context, message: ORDER_SUCCESS_MSG);
               }).catchError((onError) {
                 hideDialog(context);
-                showWarningDialog(
-                  context,
-                  message: onError.toString(),
-                );
+                showWarningDialog(context, message: onError.toString());
               });
             },
           ),
@@ -36,7 +30,7 @@ class CartScreen extends StatelessWidget {
             child: bloc.cartList.isEmpty
                 ? Center(
                     child: Text(
-                      "ထီလက်မှတ် ရွေးခြယ်ထားခြင်းမရှိပါ။",
+                      NO_LOTTERY_SELECTED,
                       style: TextStyle(fontFamily: 'Pyidaungsu'),
                     ),
                   )

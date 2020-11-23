@@ -11,8 +11,10 @@ const String TICKETS_ENTRY = "https://lotteryapis.herokuapp.com/api/v1/tickets";
 const String BUY_TICKETS_ENTRY = "/buy/tickets";
 const String LOGIN_ENTRY = "/login";
 const String REGISTER_ENTRY = "/register";
+const String PROFILE_ENTRY = "/profile";
 
 const String TICKET_GROUP_ID_KEY = "ticket_group_id";
+const String TICKETS_KEY = "tickets";
 const String IMG_URL_KEY = "img_url";
 
 // status codes
